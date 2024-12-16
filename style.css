@@ -11,7 +11,7 @@ p {
   color: blue;
 }
  label{
-  color: blue;
+  color: orange;
   font-size: 20px;
   font-weight: bold;
  }
@@ -21,6 +21,7 @@ p {
   color: orange;
   font-weight: bolder;
   border: 4px solid black;
+  transition: 2s;
  }
 
  .btn:hover{
@@ -28,7 +29,17 @@ p {
   color: orange;
   font-weight: bolder;
   border: 4px solid blue;
+  transform: scale(1.2);
+  transition: 1s;
  }
 
-
+form{
+  background-color: blue;
+  padding-left: 35px;
+  padding-right: 35px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border: 4px solid black;
+  border-radius: 25px;
+}
  
