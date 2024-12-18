@@ -52,9 +52,25 @@ function genSuffix (favoriteAnimal) {
   return `of ${favoriteAnimal} clan.`
 }
 
-//swichCase
+//swichCase gen
+function genFavoritePlayer () {
+  const randomNumber = Math.floor(Math.random() * 3) + 1;
+  switch (randomNumber) {
+    case 1:
+      return "Mets";
+      break;
+    case 2:
+      return "Yankees";
+      break;
+      case 2:
+      return "Twins";
+      break;
+    default:
+      return "Phillies";
+  }
+}
 
-
+  
 
 //MAster Name Building FUnction
 function genFullName () {
@@ -79,7 +95,8 @@ function genFullName () {
   const capitalizedLastName = capitalize(newLastName)
 
   //Combine all of the Name variables in a new name
-  const fullName = `${capitalizedPrefix} ${capitalizedFirstName} ${capitalizedMiddleName} ${capitalizedLastName} ${suffix}`
+  const fullName = `${capitalizedPrefix} ${capitalizedFirstName} of the ${genFavoritePlayer()} ${capitalizedMiddleName} ${capitalizedLastName} ${suffix}`;
+
   console.log(fullName)
   //Display the new name
   document.getElementById('result').textContent = fullName
