@@ -52,6 +52,10 @@ function genSuffix (favoriteAnimal) {
   return `of ${favoriteAnimal} clan.`
 }
 
+//swichCase
+
+
+
 //MAster Name Building FUnction
 function genFullName () {
   //Get the Users Inputs from HTML Elements
