@@ -1,73 +1,116 @@
 // Generate Prefix
 function genPrefix(firstName) {
-  return firstName.length > 5 ? "The Great" : "Master";
+  if (firstName.length > 5) {
+    return 'The Great';
+  } else {
+    return 'Master';
+  }
 }
 
-// Generate First Name
+// Generate First Name (Team Name)
 function genFirstName(firstName) {
-  const firstLetter = firstName.charAt(0).toLowerCase();
-  if (firstLetter === "a") return "Dodgers";
-  if (firstLetter === "b") return "Mets";
-  if (firstLetter === "c") return "Yankees";
-  if (firstLetter === "d") return "Phillies";
-  if (firstLetter === "e") return "Cubs";
-  if (firstLetter === "f") return "Red Sox";
-  if (firstLetter === "g") return "Giants";
-  return "Braves"; // Default team
+  const firstLetter = firstName.charAt(0);
+  if (firstLetter === 'a' || firstLetter === 'A') {
+    return 'Dodgers';
+  } else if (firstLetter === 'b' || firstLetter === 'B') {
+    return 'Mets';
+  } else if (firstLetter === 'c' || firstLetter === 'C') {
+    return 'Yankees';
+  } else if (firstLetter === 'd' || firstLetter === 'D') {
+    return 'Phillies';
+  } else if (firstLetter === 'e' || firstLetter === 'E') {
+    return 'Cubs';
+  } else if (firstLetter === 'f' || firstLetter === 'F') {
+    return 'Red Sox';
+  } else if (firstLetter === 'g' || firstLetter === 'G') {
+    return 'Giants';
+  } else {
+    return 'Braves'; // Default if the letter is not a-g
+  }
 }
 
 // Generate Middle Name
 function genMiddleName(roadType, favoriteColor) {
-  if (roadType === "road" && favoriteColor === "blue") return "Blueridge";
-  if (roadType === "street" && favoriteColor === "green") return "Greenson";
-  if (roadType === "avenue" && favoriteColor === "red") return "Redstone";
-  return `${favoriteColor}stone`; // Default
+  if (roadType === 'road' && favoriteColor === 'blue') {
+    return 'Blueridge';
+  } else if (roadType === 'street' && favoriteColor === 'green') {
+    return 'Greenson';
+  } else if (roadType === 'avenue' && favoriteColor === 'red') {
+    return 'Redstone';
+  } else {
+    return `${favoriteColor}stone`; // Default case
+  }
 }
 
 // Generate Last Name
 function genLastName(lastName) {
-  const lastLetter = lastName.charAt(lastName.length - 1).toLowerCase();
-  if (lastLetter === "a") return "Shadow";
-  if (lastLetter === "e") return "Storm";
-  if (lastLetter === "i") return "Blaze";
-  if (lastLetter === "o") return "Thorn";
-  if (lastLetter === "u") return "Frost";
-  return "Moon"; // Default
+  const lastLetter = lastName.charAt(lastName.length - 1);
+  if (lastLetter === 'a') {
+    return 'Shadow';
+  } else if (lastLetter === 'e') {
+    return 'Storm';
+  } else if (lastLetter === 'i') {
+    return 'Blaze';
+  } else if (lastLetter === 'o') {
+    return 'Thorn';
+  } else if (lastLetter === 'u') {
+    return 'Frost';
+  } else {
+    return 'Moon'; // Default if the letter is not matched
+  }
 }
 
 // Generate Suffix
 function genSuffix(favoriteAnimal) {
-  return `of the ${favoriteAnimal} clan.`;
+  return `of ${favoriteAnimal} clan.`;
 }
 
-// Capitalize Function
-function capitalize(input) {
-  return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
-}
-
-// Master Name Building Function
-function genFullName() {
-  const firstName = document.getElementById("firstName").value.trim();
-  const lastName = document.getElementById("lastName").value.trim();
-  const roadType = document.getElementById("roadType").value;
-  const favoriteColor = document.getElementById("favoriteColor").value.trim();
-  const favoriteAnimal = document.getElementById("favoriteAnimal").value.trim();
-  const favoriteTeam = document.getElementById("favoriteTeam").value.trim(); // Fetch favorite team
-
-  // Validate road type selection
-  if (!roadType) {
-    alert("Please select a valid road type.");
-    return;
+// Switch Case for Favorite Player
+function genFavoritePlayer() {
+  const randomNumber = Math.floor(Math.random() * 3) + 1;
+  switch (randomNumber) {
+    case 1:
+      return 'Mets';
+    case 2:
+      return 'Yankees';
+    case 3:
+      return 'Twins';
+    default:
+      return 'Phillies';
   }
+}
 
-  const prefix = capitalize(genPrefix(firstName));
-  const newFirstName = capitalize(genFirstName(firstName));
-  const middleName = capitalize(genMiddleName(roadType, favoriteColor));
-  const newLastName = capitalize(genLastName(lastName));
+// Full Name Generator
+function genFullName() {
+  // Get the User Inputs from HTML Elements
+  const firstName = document.getElementById('firstName').value.trim();
+  const lastName = document.getElementById('lastName').value.trim();
+  const roadType = document.getElementById('roadType').value;
+  const favoriteColor = document.getElementById('favoriteColor').value.trim();
+  const favoriteAnimal = document.getElementById('favoriteAnimal').value.trim();
+
+  // Run Name Generating Functions & store them in new variables
+  const prefix = genPrefix(firstName);
+  const newFirstName = genFirstName(firstName);
+  const middleName = genMiddleName(roadType, favoriteColor);
+  const newLastName = genLastName(lastName);
   const suffix = genSuffix(favoriteAnimal);
 
-  // Incorporate favorite team into the full name
-  const fullName = `${prefix} of the ${newFirstName} ${middleName} ${newLastName}, rivals of the ${favoriteTeam}.`;
+  // Capitalize Name Variables when needed
+  const capitalizedPrefix = capitalize(prefix);
+  const capitalizedFirstName = capitalize(newFirstName);
+  const capitalizedMiddleName = capitalize(middleName);
+  const capitalizedLastName = capitalize(newLastName);
 
-  document.getElementById("result").textContent = fullName;
+  // Combine all of the Name variables in a new name
+  const fullName = `${capitalizedPrefix} ${capitalizedFirstName} of the ${genFavoritePlayer()} ${capitalizedMiddleName} ${capitalizedLastName} ${suffix}`;
+
+  console.log(fullName);
+  // Display the new name
+  document.getElementById('result').textContent = fullName;
+}
+
+// Capitalization Function
+function capitalize(input) {
+  return input.charAt(0).toUpperCase() + input.slice(1).toLowerCase();
 }
