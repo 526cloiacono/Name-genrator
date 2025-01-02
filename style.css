@@ -1,54 +1,80 @@
 body {
   background-color: orange;
   text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
 h1 {
   color: blue;
   padding-top: 25px;
+  font-size: 36px;
 }
 
 p {
   color: blue;
+  font-size: 18px;
 }
- label{
+
+label {
   color: orange;
   font-size: 20px;
   font-weight: bold;
- }
+  display: block;
+  margin-bottom: 5px;
+}
 
- .btn{
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.btn {
   background-color: blue;
   color: orange;
   font-weight: bolder;
   border: 4px solid black;
-  transition: 2s;
- }
+  transition: 0.5s ease;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+}
 
- .btn:hover{
+.btn:hover {
   background-color: black;
   color: orange;
-  font-weight: bolder;
   border: 4px solid blue;
-  transform: scale(1.2);
-  transition: 1s;
- }
-
-form{
-  background-color: blue;
-  padding-left: 35px;
-  padding-right: 35px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border: 4px solid black;
-  border-radius: 25px;
+  transform: scale(1.1);
+  transition: 0.3s ease;
 }
- 
 
-.result{
+form {
   background-color: blue;
-  padding: 30px;
+  padding: 20px;
   border: 4px solid black;
-  font-size: 50px;
   border-radius: 25px;
-color: orange;
-} 
+  display: inline-block;
+  text-align: center;
+  width: 85%;
+}
+
+.result {
+  background-color: blue;
+  padding: 50px; 
+  border: 4px solid black;
+  font-size: 35px;
+  border-radius: 25px;
+  color: orange;
+  margin-top: 20px; 
+  margin-bottom: 40px; 
+  display: inline-block;
+  text-align: center;
+  width: 75%; 
+}
