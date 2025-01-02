@@ -76,7 +76,7 @@ function genFavoritePlayer() {
     case 3:
       return 'Twins';
     default:
-      return 'Phillies';
+      return 'Phillies'; // defult 
   }
 }
 
